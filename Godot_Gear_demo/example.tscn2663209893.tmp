@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://dh0oj81pufivs"]
+
+[ext_resource type="Script" uid="uid://d4jtykcwlwdbx" path="res://example.gd" id="1_2jas5"]
+[ext_resource type="Texture2D" uid="uid://b8vobf88v1s6a" path="res://1.png" id="3_8lvy3"]
+[ext_resource type="Script" uid="uid://delbtkx2u8olr" path="res://sprite_2d.gd" id="4_wcwec"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8lvy3"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_2jas5")
+
+[node name="RotatableRigidBody" type="RotatableRigidBody" parent="."]
+rotation_speed = 17.9
+position = Vector2(406, 258)
+
+[node name="GearCollisionPolygon" type="GearCollisionPolygon" parent="RotatableRigidBody"]
+tooth_width_angle = 49.1901
+up_tooth_width = 6.127
+down_tooth_width = 8.1
+tooth_height = 7.73
+radius = 49.1901
+scale = Vector2(4.385, 4.385)
+polygon = PackedVector2Array(4.05, 48.5851, 3.0635, 56.3151, -3.0635, 56.3151, -4.05, 48.5851, -11.1543, 47.4605, -14.4801, 54.5079, -20.3075, 52.6154, -18.8583, 44.9587, -25.2678, 41.6948, -30.6077, 47.3703, -35.5657, 43.7706, -31.8224, 36.9358, -36.9105, 31.8518, -43.7422, 35.6005, -47.3459, 30.6454, -41.6746, 25.301, -44.9437, 18.894, -52.5993, 20.3494, -54.4963, 14.5235, -47.4516, 11.1921, -48.5819, 4.08869, -56.3127, 3.10834, -56.3176, -3.01866, -48.5883, -4.01131, -47.4694, -11.1165, -54.5194, -14.4367, -52.6316, -20.2656, -44.9737, -18.8224, -41.7149, -25.2346, -47.3947, -30.57, -43.7989, -35.5308, -36.9611, -31.793, -31.8812, -36.8851, -35.6354, -43.7139, -30.6831, -47.3215, -25.3342, -41.6545, -18.9298, -44.9286, -20.3913, -52.583, -14.5669, -54.4847, -11.2299, -47.4427, -4.12737, -48.5786, -3.15318, -56.3102, 2.97381, -56.3199, 3.97262, -48.5915, 11.0787, -47.4782, 14.3933, -54.5308, 20.2237, -52.6477, 18.7866, -44.9887, 25.2014, -41.735, 30.5322, -47.419, 35.4959, -43.8271, 31.7635, -36.9864, 36.8597, -31.9105, 43.6855, -35.6701, 47.2971, -30.7208, 41.6343, -25.3674, 44.9135, -18.9656, 52.5668, -20.4332, 54.4731, -14.6103, 47.4337, -11.2676, 48.5753, -4.16606, 56.3077, -3.19802, 56.3223, 2.92896, 48.5947, 3.93392, 47.487, 11.0409, 54.5423, 14.3498, 52.6638, 20.1818, 45.0036, 18.7508, 41.755, 25.1682, 47.4433, 30.4945, 43.8554, 35.461, 37.0117, 31.7341, 31.9399, 36.8343, 35.7049, 43.6571, 30.7584, 47.2726, 25.4005, 41.6141, 19.0014, 44.8984, 20.475, 52.5505, 14.6536, 54.4615, 11.3054, 47.4247)
+
+[node name="Sprite2D" type="Sprite2D" parent="RotatableRigidBody/GearCollisionPolygon"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_8lvy3")
+script = ExtResource("4_wcwec")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(406, 258)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_8lvy3")
+debug_color = Color(0, 0.6, 0.701961, 0.454902)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(406, 258)
+node_a = NodePath("../RotatableRigidBody")
+node_b = NodePath("../StaticBody2D")

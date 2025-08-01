@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4nrd22ntrwfw"]
+
+[ext_resource type="Texture2D" uid="uid://dkk121i1mavmo" path="res://绘制机械齿轮 (7).png" id="1_8m8ww"]
+[ext_resource type="Script" uid="uid://ctyjqubasgaic" path="res://w_1.gd" id="1_e0ure"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e0ure"]
+
+[node name="W1" type="Node2D"]
+script = ExtResource("1_e0ure")
+GearScale = 1.07
+RotationSpeed = 7.81
+AutoRoate = true
+
+[node name="RotatableRigidBody" type="RotatableRigidBody" parent="."]
+rotation_speed = 1.1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotatableRigidBody"]
+scale = Vector2(0.11, 0.11)
+polygon = PackedVector2Array(126, 313, 45, 328, 32.9982, 397, -32.0018, 396, -41, 327, -130.001, 315.999, -170.002, 360.999, -227.001, 324.999, -199, 258, -270.698, 209.635, -325.001, 227.999, -357.001, 171.998, -308.32, 123.417, -328, 46, -391, 34.9983, -391, -28.0018, -323, -43, -306, -127, -355.999, -166.002, -320.999, -220.001, -266, -198, -196, -263, -226.663, -325.934, -169.998, -356.001, -125, -297, -44, -326, -31.9983, -390, 31.0017, -391, 42, -324, 128, -304, 169.002, -354.999, 225.001, -323.999, 202, -268, 271.001, -205.999, 325.001, -218.999, 355.001, -163.998, 313.001, -123.999, 336, -39.9985, 390, -29.9983, 390, 34.0017, 339.657, 46.7682, 307, 126, 357.999, 172.002, 323.999, 229.001, 257.232, 201.875, 205, 265, 225.999, 327.001, 168.998, 359.001)
+
+[node name="Sprite2D" type="Sprite2D" parent="RotatableRigidBody/CollisionPolygon2D"]
+texture = ExtResource("1_8m8ww")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_e0ure")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+node_a = NodePath("../StaticBody2D")
+node_b = NodePath("../RotatableRigidBody")
+
+[node name="Node2D" type="Node2D" parent="."]

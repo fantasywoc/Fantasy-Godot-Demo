@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://dh0oj81pufivs"]
+
+[ext_resource type="Script" uid="uid://d4jtykcwlwdbx" path="res://example.gd" id="1_2jas5"]
+[ext_resource type="Texture2D" uid="uid://dkk121i1mavmo" path="res://绘制机械齿轮 (7).png" id="2_n51mc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n51mc"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_2jas5")
+
+[node name="W1" type="Node2D" parent="."]
+position = Vector2(135, 277)
+
+[node name="RotatableRigidBody" type="RotatableRigidBody" parent="W1"]
+rotation_speed = 23.5
+
+[node name="Sprite2D" type="Sprite2D" parent="W1/RotatableRigidBody"]
+texture = ExtResource("2_n51mc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="W1/RotatableRigidBody"]
+polygon = PackedVector2Array(126, 313, 45, 328, 32.9982, 397, -32.0018, 396, -41, 327, -130.001, 315.999, -170.002, 360.999, -227.001, 324.999, -199, 258, -270.698, 209.635, -325.001, 227.999, -357.001, 171.998, -308.32, 123.417, -328, 46, -391, 34.9983, -391, -28.0018, -323, -43, -306, -127, -355.999, -166.002, -320.999, -220.001, -266, -198, -196, -263, -226.663, -325.934, -169.998, -356.001, -125, -297, -44, -326, -31.9983, -390, 31.0017, -391, 42, -324, 128, -304, 169.002, -354.999, 225.001, -323.999, 202, -268, 271.001, -205.999, 325.001, -218.999, 355.001, -163.998, 313.001, -123.999, 336, -39.9985, 390, -29.9983, 390, 34.0017, 339.657, 46.7682, 307, 126, 357.999, 172.002, 323.999, 229.001, 257.232, 201.875, 205, 265, 225.999, 327.001, 168.998, 359.001)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="W1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="W1/StaticBody2D"]
+shape = SubResource("CircleShape2D_n51mc")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="W1"]
+node_a = NodePath("../StaticBody2D")
+node_b = NodePath("../RotatableRigidBody")
+
+[node name="W2" type="Node2D" parent="."]
+position = Vector2(885, 281)
+rotation = -0.237365
+
+[node name="RotatableRigidBody2" type="RotatableRigidBody" parent="W2"]
+rotation_speed = 10.0
+auto_rotate = false
+
+[node name="Sprite2D" type="Sprite2D" parent="W2/RotatableRigidBody2"]
+texture = ExtResource("2_n51mc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="W2/RotatableRigidBody2"]
+polygon = PackedVector2Array(130.371, 303.156, 44.0392, 336.799, 34.5553, 397.264, -33.1213, 396.324, -41.8863, 335.056, -131.495, 313.881, -169.464, 360.253, -225.258, 327.206, -202.934, 264.703, -270.698, 209.635, -324.727, 228.036, -356.206, 171.035, -308.32, 123.417, -329.698, 52.9577, -390.226, 35.2276, -389.604, -26.736, -334.103, -47.9065, -309.257, -129.346, -356.099, -165.371, -325.231, -220.664, -258.339, -195.22, -197.435, -255.592, -226.663, -325.934, -168.856, -356.708, -119.883, -295.474, -44.2101, -327.581, -31.8416, -391.464, 29.7681, -390.963, 39.54, -319.94, 126.387, -304.078, 168.053, -354.421, 223.345, -323.554, 205.13, -260.299, 264.104, -194.347, 324.287, -221.97, 357.946, -165.471, 308.988, -128.96, 333.58, -47.0565, 397.296, -30.4323, 393.44, 36.5389, 327.503, 41.1641, 314.656, 132.395, 356.631, 171.674, 324.557, 227.703, 269.062, 201.93, 203.299, 261.126, 226.593, 326.436, 169.122, 359.859)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="W2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="W2/StaticBody2D2"]
+shape = SubResource("CircleShape2D_n51mc")
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="W2"]
+node_a = NodePath("../RotatableRigidBody2")
+node_b = NodePath("../StaticBody2D2")

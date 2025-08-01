@@ -1,0 +1,41 @@
+[configuration]
+
+entry_symbol = "rotatable_library_init"
+compatibility_minimum = "4.1"
+
+[libraries]
+
+windows.x86_64.single.debug = "res://addons/rigid_body/bin/windows/RotatableRigidBody.windows.template_debug.x86_64.dll"
+windows.x86_64.double.debug = "res://addons/rigid_body/bin/windows/RotatableRigidBody.windows.template_debug.x86_64.double.dll"
+windows.x86_64.single.release = "res://addons/rigid_body/bin/windows/RotatableRigidBody.windows.template_release.x86_64.dll"
+windows.x86_64.double.release = "res://addons/rigid_body/bin/windows/RotatableRigidBody.windows.template_release.x86_64.double.dll"
+
+linux.x86_64.single.debug = "./linux/libEXTENSION-NAME.linux.template_debug.x86_64.so"
+linux.x86_64.double.debug = "./linux/libEXTENSION-NAME.linux.template_debug.x86_64.double.so"
+linux.x86_64.single.release = "./linux/libEXTENSION-NAME.linux.template_release.x86_64.so"
+linux.x86_64.double.release = "./linux/libEXTENSION-NAME.linux.template_release.x86_64.double.so"
+
+linux.arm64.single.debug = "./linux/libEXTENSION-NAME.linux.template_debug.arm64.so"
+linux.arm64.double.debug = "./linux/libEXTENSION-NAME.linux.template_debug.arm64.double.so"
+linux.arm64.single.release = "./linux/libEXTENSION-NAME.linux.template_release.arm64.so"
+linux.arm64.double.release = "./linux/libEXTENSION-NAME.linux.template_release.arm64.double.so"
+
+linux.rv64.single.debug = "./linux/libEXTENSION-NAME.linux.template_debug.rv64.so"
+linux.rv64.double.debug = "./linux/libEXTENSION-NAME.linux.template_debug.rv64.double.so"
+linux.rv64.single.release = "./linux/libEXTENSION-NAME.linux.template_release.rv64.so"
+linux.rv64.double.release = "./linux/libEXTENSION-NAME.linux.template_release.rv64.double.so"
+
+android.x86_64.single.debug = "./android/libEXTENSION-NAME.android.template_debug.x86_64.so"
+android.x86_64.double.debug = "./android/libEXTENSION-NAME.android.template_debug.x86_64.double.so"
+android.x86_64.single.release = "./android/libEXTENSION-NAME.android.template_release.x86_64.so"
+android.x86_64.double.release = "./android/libEXTENSION-NAME.android.template_release.x86_64.double.so"
+
+android.arm64.single.debug = "./android/libEXTENSION-NAME.android.template_debug.arm64.so"
+android.arm64.double.debug = "./android/libEXTENSION-NAME.android.template_debug.arm64.double.so"
+android.arm64.single.release = "./android/libEXTENSION-NAME.android.template_release.arm64.so"
+android.arm64.double.release = "./android/libEXTENSION-NAME.android.template_release.arm64.double.so"
+
+web.wasm32.single.debug = "./web/libEXTENSION-NAME.web.template_debug.wasm32.nothreads.wasm"
+web.wasm32.double.debug = "./web/libEXTENSION-NAME.web.template_release.wasm32.double.nothreads.wasm"
+web.wasm32.single.release = "./web/libEXTENSION-NAME.web.template_release.wasm32.nothreads.wasm"
+web.wasm32.double.release = "./web/libEXTENSION-NAME.web.template_release.wasm32.double.nothreads.wasm"
